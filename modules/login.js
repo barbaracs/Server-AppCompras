@@ -1,4 +1,4 @@
-var bd = require ('../models/usuario');
+//var bd = require ('../models/usuario');
 
 module.exports = function(req, res) {
   var dados = {

@@ -1,10 +1,10 @@
 module.exports = {
   usuario: function(req, res) {
       var dados = {
-        nome: req.body.nome,
-        nomeusu: req.body.nomeusu,
-        senha: req.body.senha,
-        celular: req.body.celular
+        nome: req.body.dadosUsu.nome,
+        nomeusu: req.body.dadosUsu.nomeUsuario,
+        senha: req.body.dadosUsu.senha,
+        celular: req.body.dadosUsu.cel
       }
       console.log(dados);
       //parte do bd
