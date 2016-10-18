@@ -1,14 +1,24 @@
+var Usuario = require('../models/usuario');
+
 module.exports = {
   usuario: function(req, res) {
-      var dados = {
-        nome: req.body.dadosUsu.nome,
-        nomeusu: req.body.dadosUsu.nomeUsuario,
-        senha: req.body.dadosUsu.senha,
-        celular: req.body.dadosUsu.cel
-      }
-      console.log(dados);
-      //parte do bd
-      res.json(dados);
+      var newUsuario = new Usuario();
+      newUsuario.nome        = req.body.dadosUsu.nome;
+      newUsuario.nomeusu     = req.body.dadosUsu.nomeUsuario;
+      newUsuario.senha       = req.body.dadosUsu.senha;
+      newUsuario.celular     = req.body.dadosUsu.cel;
+
+    console.log(newUsuario);
+
+      newUsuario.save(function(err, resultado) {
+        if (err) {
+          res.send('erro');
+        } else {
+          res.send(resultado);
+        }
+      });
+
+      //res.json(resultado);
   },
   anuncio: function(req, res){
       var dados = {
