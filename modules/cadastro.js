@@ -1,4 +1,5 @@
 var Usuario = require('../models/usuario');
+var NAnuncio = require('../models/novoanuncio');
 
 module.exports = {
   usuario: function(req, res) {
@@ -7,8 +8,6 @@ module.exports = {
       newUsuario.nomeusu     = req.body.dadosUsu.nomeUsuario;
       newUsuario.senha       = req.body.dadosUsu.senha;
       newUsuario.celular     = req.body.dadosUsu.cel;
-
-    console.log(newUsuario);
 
       newUsuario.save(function(err, resultado) {
         if (err) {
@@ -21,17 +20,22 @@ module.exports = {
       //res.json(resultado);
   },
   anuncio: function(req, res){
-      var dados = {
-        titulo: req.body.titulo,
-        local: req.body.local,
-        preco: req.body.preco,
-        inicio: req.body.inicio,
-        termino: req.body.termino,
-        descricao: req.body.descricao,
-        tag: req.body.tag
-      }
-      console.log(dados);
-      //parte do bd
-      res.json(dados);
+    //console.log(req);
+      var newNAnuncio = new NAnuncio();
+        newNAnuncio.titulo    = req.body.dadosNAnuncio.titulo;
+        newNAnuncio.local     = req.body.dadosNAnuncio.local;
+        newNAnuncio.preco     = req.body.dadosNAnuncio.preco;
+        newNAnuncio.inicio    = req.body.dadosNAnuncio.horainicio;
+        newNAnuncio.termino   = req.body.dadosNAnuncio.horatermino;
+        newNAnuncio.descricao = req.body.dadosNAnuncio.descricao;
+        newNAnuncio.tags      = req.body.dadosNAnuncio.tag;
+
+      newNAnuncio.save(function(err, resultado) {
+        if (err) {
+          res.send('erro');
+        } else {
+          res.send(resultado);
+        }
+      });
+    }
   }
-}
