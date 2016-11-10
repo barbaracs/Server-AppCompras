@@ -5,8 +5,8 @@ var novoAnuncioSchema = new Schema({
   titulo:    String,
   local:     String,
   preco:     Number,
-  inicio:    String,
-  termino:   String,
+  inicio:    Date,
+  termino:   Date,
   descricao: String,
   tags:      Array,
   publicado: {

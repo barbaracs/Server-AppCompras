@@ -16,11 +16,8 @@ module.exports = {
           res.send(resultado);
         }
       });
-
-      //res.json(resultado);
   },
   anuncio: function(req, res){
-    //console.log(req);
       var newNAnuncio = new NAnuncio();
         newNAnuncio.titulo    = req.body.dadosNAnuncio.titulo;
         newNAnuncio.local     = req.body.dadosNAnuncio.local;
