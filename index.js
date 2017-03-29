@@ -16,9 +16,10 @@ app.use(function(req, res, next) {
 
 var rotas = {};
 //ROTAS
-rotas.cadastro  = require('./routes/cadastro');
-rotas.login     = require('./routes/login');
-rotas.anuncios  = require('./routes/anuncios');
+rotas.cadastro      = require('./routes/cadastro');
+rotas.login         = require('./routes/login');
+rotas.anuncios      = require('./routes/anuncios');
+//rotas.anuncios.tag  = require('./routes/tag');
 
 app.use('/cadastro', rotas.cadastro);
 app.use('/login', rotas.login);

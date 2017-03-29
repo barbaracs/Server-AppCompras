@@ -10,4 +10,9 @@ router.post('/usuario', cadastro.usuario);
 //pega dados do cadastro do anuncio
 router.post('/anuncio', cadastro.anuncio);
 
+//pega dados do cadastro de tags
+router.post('/tags', cadastro.tag);
+
+// router.get('/allTags', cadastro.getAllTags);
+
 module.exports = router;

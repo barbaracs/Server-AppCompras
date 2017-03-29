@@ -1,5 +1,6 @@
 var Usuario = require('../models/usuario');
 var NAnuncio = require('../models/novoanuncio');
+var Tags = require('../models/tags');
 
 module.exports = {
   usuario: function(req, res) {
@@ -34,5 +35,27 @@ module.exports = {
           res.send(resultado);
         }
       });
-    }
-  }
+    },
+  tag: function(req, res) {
+    var newTag = new Tags();
+    console.log(req.body);
+      newTag.tag = req.body.tag;
+
+      newTag.save(function(err, resultado){
+        if(err){
+          res.send('erro');
+        } else {
+          res.send(resultado);
+        }
+      });
+    },
+    // getAllTags: function(req,res) {
+    //   var allTags = undefined;
+    //   Tags.find(function(err,tags) {
+    //     if(err) return console.error(err);
+    //     console.log(tags);
+    //   })
+    // }
+
+
+}
